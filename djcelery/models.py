@@ -319,6 +319,7 @@ if (django.VERSION[0], django.VERSION[1]) >= (1, 1):
 
     from celery.backends import BACKEND_ALIASES
     known_names = BACKEND_ALIASES.keys() + BACKEND_ALIASES.values()
+    known_names.remove('database')
 
     if default_app.conf.CELERY_RESULT_BACKEND in known_names:
         TaskMeta._meta.managed = False
